@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intro to WebDev</title>
+  <style>
+    @font-face {
+      font-family: 'pokemon-hollow';
+      src: url('./pokemon-hollow.ttf');
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      text-align: center;
+      background-color: hsl(204, 100%, 72%);
+    }
+
+    h1 {
+      font-family: 'pokemon-hollow';
+      color: white;
+      font-size: 5vw;
+      margin-bottom: 3vh;
+      margin-top: 6vh;
+    }
+
+    img {
+      width: 45vh;
+      height: 55vh;
+      padding: 4vh;
+      border-radius: 15%;
+      border: 2px solid black;
+      box-shadow: 4px 4px 14px black;
+      background-color: white;
+      margin: .3vw;
+    }
+
+    #pokeball {
+      height: 10vh;
+      width: 10vh;
+      padding: 1vh;
+      position: fixed;
+      top: 4vh;
+      left: 4vh;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Intro to WebDev</h1>
+
+  <div id="pokemons">
+    <img src="./pokemons/bulbasaur.png" alt="bulbasaur" />
+    <img src="./pokemons/charmander.png" alt="charmander" />
+    <img src="./pokemons/pikachu.png" alt="pikachu" />
+    <img src="./pokemons/squirtle.png" alt="squirtle" />
+  </div>
+
+  <img id="pokeball" src="./pokemons/pokeball.png" alt="pokeball" />
+
+  <script>
+    const body = document.querySelector("body");
+    const images = document.querySelectorAll("img");
+
+    images.forEach(image => {
+      image.addEventListener("click", () => {
+        if (
+          image.alt === "pokeball"
+          || body.style.cursor === 'url("./mini-pokemons/pokeball.png"), not-allowed'
+        ) {
+          body.style.cursor = `url("./mini-pokemons/${image.alt}.png"), not-allowed`;
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
